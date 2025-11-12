@@ -1,5 +1,7 @@
 ﻿# quant-finance-proyects
 
+This repository contains 2 notebooks exploring the use of deep learning methods for portfolio allocation and trading strategies, with a focus on Long Short-Term Memory (LSTM) networks.
+
 01_lstm_intro.ipynb
 
 This notebook introduces a complete, end-to-end implementation of an LSTM forecasting model in PyTorch. It starts by generating synthetic time-series data with trends, cycles, and noise, then builds an LSTM network to learn one-step-ahead predictions.
