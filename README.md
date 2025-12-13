@@ -19,7 +19,7 @@ The goal is to provide a warm-up introduction to LSTMs for time-series forecasti
 
 02_lstm_trading_strategy.ipynb
 
-This notebook implements and extends the methodology from  
+This notebook implements the methodology from  
 _Deep Learning for Portfolio Optimization by Zihao Zhang, Stefan Zohren, and Stephen J. Roberts (The Journal of Financial Data Science, 2020, Oxford-Man Institute of Quantitative Finance, University of Oxford)_.  
 
 ### Overview
