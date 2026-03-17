@@ -23,12 +23,14 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
+        working-directory: 03_lstm_trading_live
         run: pip install -r requirements.txt
 
       - name: Run deploy.py
         env:
           ALPACA_API_KEY:    ${{ secrets.ALPACA_API_KEY }}
           ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        working-directory: 03_lstm_trading_live
         run: python deploy.py
 
       - name: Upload daily log
