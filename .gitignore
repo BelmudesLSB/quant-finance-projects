@@ -1,1 +1,5 @@
 bloomberg_data_DL.csv
+03_lstm_trading_live/.env
+03_lstm_trading_live/logs/
+03_lstm_trading_live/__pycache__/
+03_lstm_trading_live/data/
