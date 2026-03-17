@@ -1,0 +1,38 @@
+name: Daily portfolio rebalance
+
+on:
+  schedule:
+    # 19:55 UTC = 15:55 ET (EDT, UTC-4) — runs Mon-Fri
+    # Note: change to 20:55 UTC in winter (EST, UTC-5)
+    - cron: "55 19 * * 1-5"
+
+  # Allows manual trigger from GitHub Actions tab — useful for testing
+  workflow_dispatch:
+
+jobs:
+  rebalance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run deploy.py
+        env:
+          ALPACA_API_KEY:    ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        run: python deploy.py
+
+      - name: Upload daily log
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-log-${{ github.run_id }}
+          path: logs/daily_log.csv
