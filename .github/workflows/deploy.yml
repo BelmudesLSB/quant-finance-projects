@@ -2,12 +2,11 @@ name: Daily portfolio rebalance
 
 on:
   schedule:
-    # 19:55 UTC = 15:55 ET (EDT, UTC-4) — runs Mon-Fri
-    # Note: change to 20:55 UTC in winter (EST, UTC-5)
     - cron: "55 19 * * 1-5"
-
-  # Allows manual trigger from the Actions tab
   workflow_dispatch:
+
+permissions:
+  contents: write        # ← allows the bot to push commits
 
 jobs:
   rebalance:
@@ -27,10 +26,10 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run deploy.py
-        working-directory: 03_lstm_trading_live
         env:
           ALPACA_API_KEY:    ${{ secrets.ALPACA_API_KEY }}
           ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        working-directory: 03_lstm_trading_live
         run: python deploy.py
 
       - name: Commit updated log
@@ -41,3 +40,9 @@ jobs:
           git add logs/daily_log.csv
           git commit -m "log: ${{ github.run_id }}" || echo "nothing to commit"
           git push
+
+      - name: Upload daily log
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-log-${{ github.run_id }}
+          path: 03_lstm_trading_live/logs/daily_log.csv
