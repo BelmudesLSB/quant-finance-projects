@@ -1,8 +1,6 @@
 name: Daily portfolio rebalance
 
 on:
-  schedule:
-    - cron: "55 19 * * 1-5"
   workflow_dispatch:
 
 permissions:
