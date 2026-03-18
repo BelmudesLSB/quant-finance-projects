@@ -287,7 +287,7 @@ if __name__ == "__main__":
     current_prices = {sym: float(df[sym].iloc[-1]) for sym in SYMBOLS}
     X              = build_features(df)
     weights        = get_weights(X)
-    equity         = execute_orders(weights, current_prices, dry_run=False)  # flip to False when ready
+    equity         = execute_orders(weights, current_prices, dry_run=True)  # flip to False when ready
     log_to_csv(weights, equity, current_prices)
 
     log.info("deploy.py  done")
