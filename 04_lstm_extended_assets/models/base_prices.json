@@ -1,0 +1,21 @@
+{
+  "communication_services_price": 50.7,
+  "consumer_discretionary_price": 58.95,
+  "consumer_staples_price": 50.49,
+  "energy_price": 15.36,
+  "financials_price": 21.24,
+  "health_care_price": 92.45,
+  "industrials_price": 62.13,
+  "materials_price": 24.61,
+  "real_estate_price": 28.5,
+  "technology_price": 46.14,
+  "utilities_price": 24.64,
+  "emerging_price": 32.45,
+  "developed_price": 31.44,
+  "long_bond_price": 136.72,
+  "short_bond_price": 85.1,
+  "gold_price": 161.72,
+  "copper_price": 15.07,
+  "agriculture_price": 51.48,
+  "oil_price": 25.03
+}
